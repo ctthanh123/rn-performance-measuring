@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image, ScrollView } from 'react-native';
 import { CustomIcons } from 'react-native-rn-icons-library';
+import { Item } from '../components';
 
 const List = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        getDatas();
+        // getDatas();
     }, []);
 
     const getDatas = async () => {
@@ -15,29 +16,48 @@ const List = () => {
         setAlbums(resJson);
     };
 
-    const renderMapItem = () => {
+    const renderMapItem = () => (
+        <ScrollView>
+            {
+                albums?.map((item) => (<Item data={item} />))
+            }
+        </ScrollView>
+    );
 
+    const renderItem = ({ item }: any) => <Item data={item} />;
+
+    const renderFlatlistItem = () => (
+        <FlatList 
+            data={albums}
+            renderItem={renderItem}
+            keyExtractor={(item: any) => `item_${item?.id}`}
+            initialNumToRender={10}
+        />
+    );
+
+    const onPress = () => {
+        getDatas();
     }
-
-    const renderFlatlistItem = () => {
-
-    };
-
 
     return (
         <View style={styles.container}>
             <CustomIcons 
-                name='avatarHacker'
-                size={56}
-                labelRight='test nha'
-                
+                name='like'
+                size={26}
+                tintColor='tomato'
+                labelRight='Press me!'
+                onPress={onPress}
             />
+            {/* {renderFlatlistItem()} */}
+            {renderMapItem()}
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {}
+    container: {
+        flex: 1,
+    },
 });
 
 export default List;
