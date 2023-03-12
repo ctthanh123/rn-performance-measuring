@@ -1,2 +1,2 @@
 # rn-performance-measuring
-for learing
+for learning
