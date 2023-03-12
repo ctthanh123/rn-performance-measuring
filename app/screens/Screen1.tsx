@@ -17,10 +17,10 @@ const Screen1 = () => {
 
     const renderMapItem = () => (
         <ScrollView>
-            {albums?.map((item) => (<Item data={item} />))}
+            {albums?.map((item) => (<Item data={item} useFastImage={false} />))}
         </ScrollView>
     );
-    
+
     return (
         <View style={styles.container}>
             <Text>Use map to render</Text>

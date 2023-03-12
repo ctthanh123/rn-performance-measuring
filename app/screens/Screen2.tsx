@@ -12,7 +12,7 @@ const Screen2 = () => {
         setAlbums(resJson);
     };
 
-    const renderItem = ({ item }: any) => <Item data={item} />;
+    const renderItem = ({ item }: any) => <Item data={item} useFastImage />;
 
     const renderFlatlistItem = () => (
         <FlatList 

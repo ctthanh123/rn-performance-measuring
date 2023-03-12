@@ -15,7 +15,7 @@ const List = () => {
         setAlbums(resJson);
     };
 
-    const renderItem = ({ item }: any) => <Item data={item} />;
+    const renderItem = ({ item }: any) => <Item data={item} useFastImage />;
 
     const renderFlatlistItem = () => (
         <FlatList 
@@ -23,6 +23,8 @@ const List = () => {
             renderItem={renderItem}
             keyExtractor={(item: any) => `item_${item?.id}`}
             initialNumToRender={10}
+            removeClippedSubviews={true}
+            // maxToRenderPerBatch={10}
         />
     );
 

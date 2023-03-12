@@ -1,11 +1,26 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 interface ItemProps {
     data: any;
+    useFastImage: boolean;
 }
 
-const componentName: React.FC<ItemProps> = ({ data }) => {
+const Item: React.FC<ItemProps> = ({ data, useFastImage = false }) => {
+    if (useFastImage) {
+        return (
+            <View style={styles.item}>
+                <FastImage 
+                    source={{ uri: data?.url }}
+                    style={styles.img}
+                    resizeMode='contain'
+                />
+                <Text>{ data?.title }</Text>
+            </View>
+        );
+    }
+
     return (
         <View style={styles.item}>
             <Image 
@@ -18,7 +33,7 @@ const componentName: React.FC<ItemProps> = ({ data }) => {
     );
 };
 
-export default componentName;
+export default Item;
 
 const styles = StyleSheet.create({
     img: {
