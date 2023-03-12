@@ -15,6 +15,14 @@ const Home: React.FC<any> = ({ navigation }) => {
         navigation.navigate(stacks.main.list);
     }
 
+    const redirectToScreen1 = () => {
+        navigation.navigate(stacks.main.screen1);
+    }
+
+    const redirectToScreen2 = () => {
+        navigation.navigate(stacks.main.screen2);
+    }
+
     return (
         <SafeAreaView>
             <StatusBar barStyle={'light-content'} backgroundColor='white' />
@@ -26,10 +34,14 @@ const Home: React.FC<any> = ({ navigation }) => {
                     >
                         <Text style={styles.text}>Navigate to List</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btnList, { backgroundColor: '#00cec9' }]}>
+                    <TouchableOpacity style={[styles.btnList, { backgroundColor: '#00cec9' }]}
+                        onPress={redirectToScreen1}
+                    >
                         <Text style={styles.text}>Navigate to Screen 1</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btnList, { backgroundColor: '#74b9ff' }]}>
+                    <TouchableOpacity style={[styles.btnList, { backgroundColor: '#74b9ff' }]}
+                        onPress={redirectToScreen2}
+                    >
                         <Text style={styles.text}>Navigate to Screen 2</Text>
                     </TouchableOpacity>
                 </View>

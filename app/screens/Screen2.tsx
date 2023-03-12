@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { CustomIcons } from 'react-native-rn-icons-library';
 import { Item } from '../components';
 
-const List = () => {
+const Screen2 = () => {
     const [albums, setAlbums] = useState([]);
-
-    useEffect(() => {
-        getDatas();
-    }, []);
 
     const getDatas = async () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/albums/1/photos');
@@ -26,9 +23,20 @@ const List = () => {
         />
     );
 
+    const onPress = () => {
+        getDatas();
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Use Flatlist to render</Text>
+            <Text>Trigger action call api</Text>
+            <CustomIcons 
+                name='avatarFireMan'
+                size={26}
+                labelRight='Press me!'
+                onPress={onPress}
+                tintColor='tomato'
+            />
             {renderFlatlistItem()}
         </View>
     );
@@ -40,4 +48,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default List;
+export default Screen2;

@@ -5102,6 +5102,11 @@ inquirer@^9.1.4:
     through "^2.3.6"
     wrap-ansi "^8.0.1"
 
+instabug-reactnative@^11.9.1:
+  version "11.9.1"
+  resolved "https://registry.yarnpkg.com/instabug-reactnative/-/instabug-reactnative-11.9.1.tgz#e1ddaa71f91e4bcfe9e1f850a1b03cbcf6d8681f"
+  integrity sha512-N9ZJPjLDrVWAxZ/d/C1fD5RgPhfDYhKI06XJPyOhGlwvYA43GXAswyknwa87bLe2KmQqRr4ufDZpkmxvje7bmg==
+
 internal-slot@^1.0.3, internal-slot@^1.0.4, internal-slot@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.5.tgz#f2a2ee21f668f8627a4667f309dc0f4fb6674986"

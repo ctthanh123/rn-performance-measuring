@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { Item } from '../components';
 
-const List = () => {
+const Screen1 = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
@@ -15,21 +15,16 @@ const List = () => {
         setAlbums(resJson);
     };
 
-    const renderItem = ({ item }: any) => <Item data={item} />;
-
-    const renderFlatlistItem = () => (
-        <FlatList 
-            data={albums}
-            renderItem={renderItem}
-            keyExtractor={(item: any) => `item_${item?.id}`}
-            initialNumToRender={10}
-        />
+    const renderMapItem = () => (
+        <ScrollView>
+            {albums?.map((item) => (<Item data={item} />))}
+        </ScrollView>
     );
-
+    
     return (
         <View style={styles.container}>
-            <Text>Use Flatlist to render</Text>
-            {renderFlatlistItem()}
+            <Text>Use map to render</Text>
+            {renderMapItem()}
         </View>
     );
 };
@@ -40,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default List;
+export default Screen1;
